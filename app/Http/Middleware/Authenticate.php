@@ -3,9 +3,12 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use App\Http\Traits\ApiResponseTrait;
 
 class Authenticate extends Middleware
 {
+    use ApiResponseTrait;
+
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
@@ -16,6 +19,9 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             return route('login');
+        // return $this->apiResponse(null ,'Un authorized',400);
+        // return 'un auth';
+
         }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\ApiController\AuthController;
 use App\Http\Controllers\ApiController\ClientPostController;
 use App\Http\Controllers\ApiController\ContactController;
 use App\Http\Controllers\ApiController\ClientNotificationController;
+use App\Http\Controllers\ApiController\DonationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,11 @@ Route::prefix('v1')->namespace('ApiController')->group(function () {
             Route::get('/bloods',[MainController::class , 'bloodsList']);
             // -------------------- Routes of Notifications --------------------------
             Route::post('/notifications-data',[ClientNotificationController::class , 'setClientNotificationsData']);
+            
+            // -------------------- Routes of donations requests --------------------------
+            Route::post('/add-donation',[DonationsController::class , 'store']);
+            Route::get('/donations',[DonationsController::class , 'donationsList']);
+            Route::get('/show-donation',[DonationsController::class , 'showDonation']);
             
 
         });

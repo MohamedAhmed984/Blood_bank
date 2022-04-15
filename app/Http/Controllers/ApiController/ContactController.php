@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Validator;
+use App\Http\Traits\ApiResponseTrait;
 
 
 class ContactController extends Controller
